@@ -1,8 +1,8 @@
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import {
-  DarkTheme,
-  DefaultTheme,
-  ThemeProvider,
+    DarkTheme,
+    DefaultTheme,
+    ThemeProvider,
 } from "@react-navigation/native";
 import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
@@ -10,47 +10,69 @@ import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
 
 import { useColorScheme } from "@/components/useColorScheme";
+import CustomHeader from "@/components/CustomHeader";
 
 export { ErrorBoundary } from "expo-router";
 
 export const unstable_settings = {
-  initialRouteName: "(tabs)",
+    initialRouteName: "auth/Register",
 };
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
-  const [loaded, error] = useFonts({
-    SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
-    ...FontAwesome.font,
-  });
+    const [loaded, error] = useFonts({
+        SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
+        ...FontAwesome.font,
+    });
 
-  // Expo Router uses Error Boundaries to catch errors in the navigation tree.
-  useEffect(() => {
-    if (error) throw error;
-  }, [error]);
+    // Expo Router uses Error Boundaries to catch errors in the navigation tree.
+    useEffect(() => {
+        if (error) throw error;
+    }, [error]);
 
-  useEffect(() => {
-    if (loaded) {
-      SplashScreen.hideAsync();
+    useEffect(() => {
+        if (loaded) {
+            SplashScreen.hideAsync();
+        }
+    }, [loaded]);
+
+    if (!loaded) {
+        return null;
     }
-  }, [loaded]);
 
-  if (!loaded) {
-    return null;
-  }
-
-  return <RootLayoutNav />;
+    return <RootLayoutNav />;
 }
 
 function RootLayoutNav() {
-  const colorScheme = useColorScheme();
+    const colorScheme = useColorScheme();
 
-  return (
-    <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: "modal" }} />
-      </Stack>
-    </ThemeProvider>
-  );
+    return (
+        <ThemeProvider
+            value={colorScheme === "dark" ? DarkTheme : DefaultTheme}
+        >
+            <Stack>
+                <Stack.Screen
+                    name="auth/Register"
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen
+                    options={{ headerShown: false }}
+                    name="CategoryDetails/CategoryDetails"
+                />
+                <Stack.Screen
+                    name="auth/Login"
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+                <Stack.Screen
+                    name="modal"
+                    options={{ presentation: "modal" }}
+                />
+                <Stack.Screen
+                    name="CategoryDetails/UserDetail"
+                    options={{ presentation: "modal", title:"User", headerShown:false }}
+                />
+            </Stack>
+        </ThemeProvider>
+    );
 }
