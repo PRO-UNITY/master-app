@@ -1,12 +1,13 @@
-import { View, Text, Image, StyleSheet } from "react-native";
+import { View, Text, Image, StyleSheet, Pressable } from "react-native";
 import React from "react";
 import { useNavigation } from "expo-router";
 
 const CategoryItem = () => {
-  const navigate = useNavigation();
+  const navigation = useNavigation();
+  const navigateTo = () => navigation.navigate("CategoryDetails/CategoryDetails");
   
   return (
-    <View style={styles.container}>
+    <Pressable onPress={navigateTo} style={styles.container}>
       <Image
         style={styles.logo}
         source={{
@@ -17,7 +18,7 @@ const CategoryItem = () => {
         <Text style={styles.title}>Master Repair</Text>
         <Text style={styles.subtitle}>71 0000 specialist</Text>
       </View>
-    </View>
+    </Pressable>
   );
 };
 

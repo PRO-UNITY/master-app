@@ -1,8 +1,11 @@
 import React from "react";
 import { View, Text, StyleSheet, TextInput } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import { useNavigation } from "expo-router";
 
 const HomeHeader = () => {
+  const navigation = useNavigation()
+  const navigateTo=()=>navigation.navigate('Chat/ChatList')
   return (
     <View style={styles.container}>
       <Ionicons name="person" size={24} color="#fff" />
@@ -14,7 +17,7 @@ const HomeHeader = () => {
           placeholderTextColor="#ffffff"
         />
       </View>
-      <Ionicons name="cog" size={24} color="#fff" />
+      <Ionicons onPress={navigateTo} name="chatbubble-ellipses" size={24} color="#fff" />
     </View>
   );
 };

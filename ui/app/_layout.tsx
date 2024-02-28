@@ -45,6 +45,14 @@ function RootLayoutNav() {
           options={{ headerShown: false }}
           name="CategoryDetails/CategoryDetails"
         />
+        <Stack.Screen
+          options={{ headerShown: false }}
+          name="Chat/ChatList"
+        />
+        <Stack.Screen
+          options={{ headerShown: false }}
+          name="Chat/Chat"
+        />
         <Stack.Screen name="auth/Login" options={{ headerShown: false }} />
         <Stack.Screen
           name="CategoryDetails/UserDetail"

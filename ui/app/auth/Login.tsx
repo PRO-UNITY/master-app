@@ -12,7 +12,7 @@ import Colors from "@/constants/Colors";
 const Login = () => {
     const navigation = useNavigation();
     const navigate = () => {
-        navigation.navigate("CategoryDetails/CategoryDetails");
+        navigation.navigate("(tabs)");
     };
     return (
         <View style={styles.container}>
@@ -99,24 +99,8 @@ const Login = () => {
                     </Link>
 
                     <TouchableOpacity onPress={navigate}>
-                        <View
-                            style={{
-                                margin: 10,
-                                backgroundColor: Colors.light.primary,
-                                justifyContent: "center",
-                                alignItems: "center",
-                                borderRadius: 100,
-                                paddingVertical: 10,
-                            }}
-                        >
-                            <Text
-                                style={{
-                                    color: "white",
-                                    fontSize: 20,
-                                }}
-                            >
-                                Login
-                            </Text>
+                        <View style={styles.saveBtn}>
+                            <Text style={styles.saveBtnText}>Login</Text>
                         </View>
                     </TouchableOpacity>
 
@@ -126,13 +110,7 @@ const Login = () => {
                             justifyContent: "center",
                             marginVertical: 40,
                         }}
-                    >
-                        <View style={styles.imagecontainer}></View>
-
-                        <View style={styles.imagecontainer}></View>
-
-                        <View style={styles.imagecontainer}></View>
-                    </View>
+                    ></View>
                 </View>
             </View>
         </View>
@@ -153,34 +131,27 @@ const styles = StyleSheet.create({
         margin: 30,
     },
     label: {
-        fontWeight: "300",
-        paddingLeft: 5,
-        fontSize: 17,
-        color: "#999",
+        fontSize: 16,
+        marginBottom: 5,
+        color: Colors.light.primary,
     },
     input: {
-        height: 40,
-        margin: 5,
-        borderRadius: 100,
-        backgroundColor: "#e7e7e7",
-        padding: 10,
+        padding: 15,
+        height: 54,
+        borderRadius: 15,
+        borderWidth: 1,
+        borderColor: Colors.light.primary,
     },
-    imagecontainer: {
+    saveBtn: {
+        backgroundColor: Colors.light.primary,
+        height: 55,
         justifyContent: "center",
-        alignItems: "center",
+        borderRadius: 15,
+        marginTop: 10,
     },
-    image_logo: {
-        width: 200,
-        height: 200,
-        resizeMode: "contain",
-    },
-    card: {
-        backgroundColor: "red",
-        padding: 10,
-        margin: 10,
-        borderRadius: 7,
-        elevation: 5,
-        marginTop: 100,
-        flex: 1,
+    saveBtnText: {
+        textAlign: "center",
+        color: "#fff",
+        fontSize: 18,
     },
 });
