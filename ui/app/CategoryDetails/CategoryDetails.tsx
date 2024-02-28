@@ -14,7 +14,9 @@ import {
 
 const CategoryDetails = () => {
   const navigation = useNavigation<any>();
-  const navigateTo = () => navigation.navigate("CategoryDetails/UserDetail");
+  const navigateTo = () => {
+    navigation.navigate("CategoryDetails/UserDetail");
+  };
 
   return (
     <View style={styles.container}>
