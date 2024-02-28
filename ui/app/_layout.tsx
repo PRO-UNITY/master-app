@@ -21,14 +21,18 @@ export default function RootLayout() {
     SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
     ...FontAwesome.font,
   });
+
+  // Expo Router uses Error Boundaries to catch errors in the navigation tree.
   useEffect(() => {
     if (error) throw error;
   }, [error]);
+
   useEffect(() => {
     if (loaded) {
       SplashScreen.hideAsync();
     }
   }, [loaded]);
+
   if (!loaded) {
     return null;
   }
@@ -38,12 +42,22 @@ export default function RootLayout() {
 
 function RootLayoutNav() {
   const colorScheme = useColorScheme();
+
   return (
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
       <Stack>
+        <Stack.Screen name="auth/Register" options={{ headerShown: false }} />
+        <Stack.Screen
+          options={{ headerShown: false }}
+          name="CategoryDetails/CategoryDetails"
+        />
+        <Stack.Screen name="auth/Login" options={{ headerShown: false }} />
+        <Stack.Screen
+          name="CategoryDetails/UserDetail"
+          options={{ presentation: "modal", title: "User", headerShown: false }}
+        />
         <Stack.Screen name="Welcome" options={{ headerShown: false }} />
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: "modal" }} />
       </Stack>
     </ThemeProvider>
   );

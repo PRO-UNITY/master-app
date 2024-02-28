@@ -5,7 +5,7 @@ import { useNavigation } from "expo-router";
 const Welcome = () => {
   const navigation = useNavigation<any>();
   setTimeout(() => {
-    navigation.navigate("(tabs)");
+    navigation.navigate("auth/Register");
   }, 5000);
   return (
     <View style={styles.container}>
