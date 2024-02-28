@@ -9,7 +9,6 @@ import {
 import { Link, useNavigation } from "expo-router";
 import Colors from "@/constants/Colors";
 
-
 const Register = () => {
     const navigation = useNavigation();
     const navigate = () => {
@@ -111,7 +110,7 @@ const Register = () => {
                         style={{
                             marginLeft: "auto",
                             marginRight: "auto",
-                            marginBottom: 10,
+                            marginVertical:10,
                         }}
                     >
                         <Text style={{ color: Colors.light.primary }}>
@@ -120,25 +119,8 @@ const Register = () => {
                     </Link>
 
                     <TouchableOpacity onPress={navigate}>
-                        <View
-                            style={{
-                                margin: 10,
-                                backgroundColor: Colors.light.primary,
-                                justifyContent: "center",
-                                alignItems: "center",
-                                borderRadius: 100,
-                                paddingVertical: 10,
-                            }}
-                            href={"auth/Login"}
-                        >
-                            <Text
-                                style={{
-                                    color: "white",
-                                    fontSize: 20,
-                                }}
-                            >
-                                Register
-                            </Text>
+                        <View style={styles.saveBtn} href={"auth/Login"}>
+                            <Text style={styles.saveBtnText}>Register</Text>
                         </View>
                     </TouchableOpacity>
 
@@ -169,40 +151,33 @@ const styles = StyleSheet.create({
         backgroundColor: "#fff",
     },
     spacing: {
-        margin: 10,
+        margin: 4,
     },
     spacing_big: {
-        margin: 30,
+        margin: 20,
     },
     label: {
-        fontWeight: "300",
-        paddingLeft: 5,
-        fontSize: 17,
-        color: "#999",
+        fontSize: 16,
+        marginBottom: 5,
+        color: Colors.light.primary,
     },
     input: {
-        height: 40,
-        margin: 5,
-        borderRadius: 100,
-        backgroundColor: "#e7e7e7",
-        padding: 10,
+        padding: 15,
+        height: 54,
+        borderRadius: 15,
+        borderWidth: 1,
+        borderColor: Colors.light.primary,
     },
-    imagecontainer: {
+    saveBtn: {
+        backgroundColor: Colors.light.primary,
+        height: 55,
         justifyContent: "center",
-        alignItems: "center",
+        borderRadius: 15,
+        marginTop: 10,
     },
-    image_logo: {
-        width: 200,
-        height: 200,
-        resizeMode: "contain",
-    },
-    card: {
-        backgroundColor: "red",
-        padding: 10,
-        margin: 10,
-        borderRadius: 7,
-        elevation: 5,
-        marginTop: 100,
-        flex: 1,
+    saveBtnText: {
+        textAlign: "center",
+        color: "#fff",
+        fontSize: 18,
     },
 });

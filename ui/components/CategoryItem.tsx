@@ -5,10 +5,12 @@ import { Ionicons } from "@expo/vector-icons";
 import Colors from "@/constants/Colors";
 
 const CategoryItem = () => {
-  const navigate = useNavigation();
+  const navigation = useNavigation<any>();
+  const navigateTo = () =>
+    navigation.navigate("CategoryDetails/CategoryDetails");
 
   return (
-    <View style={styles.container}>
+    <Pressable onPress={navigateTo} style={styles.container}>
       <Image
         style={styles.logo}
         source={{
@@ -22,7 +24,7 @@ const CategoryItem = () => {
       <Pressable style={styles.button}>
         <Ionicons name="chevron-forward-outline" color={"#fff"} size={20} />
       </Pressable>
-    </View>
+    </Pressable>
   );
 };
 

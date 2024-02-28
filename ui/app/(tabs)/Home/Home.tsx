@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, FlatList, Platform } from "react-native";
 import { CategoryItem, HomeHeader } from "@/components";
 import { StatusBar } from "expo-status-bar";
 import Colors from "@/constants/Colors";
+import { useNavigation } from "expo-router";
 
 const Home = () => {
   return (
