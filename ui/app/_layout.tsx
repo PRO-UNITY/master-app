@@ -12,7 +12,7 @@ import { useColorScheme } from "@/components/useColorScheme";
 export { ErrorBoundary } from "expo-router";
 
 export const unstable_settings = {
-  initialRouteName: "Welcome",
+  initialRouteName: "index",
 };
 SplashScreen.preventAutoHideAsync();
 
@@ -21,21 +21,15 @@ export default function RootLayout() {
     SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
     ...FontAwesome.font,
   });
-
-  // Expo Router uses Error Boundaries to catch errors in the navigation tree.
   useEffect(() => {
     if (error) throw error;
   }, [error]);
 
   useEffect(() => {
-    if (loaded) {
-      SplashScreen.hideAsync();
-    }
+    if (loaded) SplashScreen.hideAsync();
   }, [loaded]);
 
-  if (!loaded) {
-    return null;
-  }
+  if (!loaded) return null;
 
   return <RootLayoutNav />;
 }
@@ -56,7 +50,7 @@ function RootLayoutNav() {
           name="CategoryDetails/UserDetail"
           options={{ presentation: "modal", title: "User", headerShown: false }}
         />
-        <Stack.Screen name="Welcome" options={{ headerShown: false }} />
+        <Stack.Screen name="index" options={{ headerShown: false }} />
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
       </Stack>
     </ThemeProvider>
