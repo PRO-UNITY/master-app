@@ -31,8 +31,9 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   subtitle: {
-    fontSize: 20,
+    fontSize: 22,
     fontWeight: "500",
     marginBottom: 40,
+    color: Colors.light.primary,
   },
 });

@@ -1,10 +1,12 @@
-import { View, Text, Image, StyleSheet } from "react-native";
 import React from "react";
+import { View, Text, Image, StyleSheet, Pressable } from "react-native";
 import { useNavigation } from "expo-router";
+import { Ionicons } from "@expo/vector-icons";
+import Colors from "@/constants/Colors";
 
 const CategoryItem = () => {
   const navigate = useNavigation();
-  
+
   return (
     <View style={styles.container}>
       <Image
@@ -13,10 +15,13 @@ const CategoryItem = () => {
           uri: "https://mremo.moscow/site/images/man_first.png",
         }}
       />
-      <View>
+      <View style={{ flex: 1 }}>
         <Text style={styles.title}>Master Repair</Text>
         <Text style={styles.subtitle}>71 0000 specialist</Text>
       </View>
+      <Pressable style={styles.button}>
+        <Ionicons name="chevron-forward-outline" color={"#fff"} size={20} />
+      </Pressable>
     </View>
   );
 };
@@ -36,10 +41,17 @@ const styles = StyleSheet.create({
     objectFit: "contain",
   },
   title: {
-    fontSize: 18,
+    fontSize: 20,
+    color: Colors.light.primary,
+    fontWeight: "500",
   },
   subtitle: {
-    fontSize: 16,
+    fontSize: 15,
     color: "#b5b5b5",
+  },
+  button: {
+    padding: 8,
+    backgroundColor: Colors.light.primary,
+    borderRadius: 10,
   },
 });

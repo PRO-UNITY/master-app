@@ -1,12 +1,15 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, StyleSheet, FlatList } from "react-native";
 import React from "react";
 import Colors from "@/constants/Colors";
+import { AppointmentItems, CustomHeader } from "@/components";
 
 const Appoinments = () => {
   return (
     <View style={styles.container}>
-      <Text>Appoinments</Text>
-      <View style={styles.content}></View>
+      <CustomHeader title="Appoinments" />
+      <View style={styles.content}>
+        <FlatList data={[0]} renderItem={(item) => <AppointmentItems />} />
+      </View>
     </View>
   );
 };
